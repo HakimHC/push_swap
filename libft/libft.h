@@ -6,7 +6,7 @@
 /*   By: hakahmed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:16:14 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/25 18:28:59 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/26 23:10:30 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ int					ft_putnbr(long n, int *len);
 int					ft_putnbr_u(unsigned long int n, char c, int *len);
 int					ft_putnbr_base(unsigned long int n, char *base, int *len);
 void				ft_free_strarr(char **arr);
+int					ft_strcmp(char *s1, char *s2);
 
 #endif
