@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:25:45 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/26 22:46:08 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:57:07 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	printf_list(t_list *head)
 {
 	if (!head)
 		return ;
-	ft_printf("%s ", (char *) head->content);
+	ft_printf("%s\n", (char *) head->content);
 	printf_list(head->next);
 }
 //
@@ -45,4 +45,7 @@ void	printf_list(t_list *head)
 //
 // 	head = args_to_list(argv, 0);
 // 	printf_list(head);
+// 	//
+// 	// ft_printf("%A", argv + 1);
+// 	// ft_printf("-\na\n");
 // }
