@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 01:35:36 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/27 23:06:15 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:41:31 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,8 @@ t_list	*push(t_list **a, t_list **b, char stack)
 			return (*a);
 		head = (*a)->next;
 		aux = ft_lstnew((*a)->content);
-		if (!*b)
-		{
-			*b = ft_lstnew(aux->content);
-			// ft_lstdelone(aux, ft_nothing);
-		}
-		else
-			ft_lstadd_front(b, aux);
+		ft_lstadd_front(b, aux);
+		ft_lstdelone(*a, &ft_nothing);
 		ft_printf("pb\n");
 		return (head);
 	}
@@ -62,13 +57,8 @@ t_list	*push(t_list **a, t_list **b, char stack)
 		return (*b);
 	head = (*b)->next;
 	aux = ft_lstnew((*b)->content);
-	if (!*a)
-	{
-		*a = ft_lstnew(aux->content);
-		// ft_lstdelone(aux, ft_nothing);
-	}
-	else
-		ft_lstadd_front(a, aux);
+	ft_lstadd_front(a, aux);
+	ft_lstdelone(*b, &ft_nothing);
 	ft_printf("pa\n");
 	return (head);
 }
@@ -88,10 +78,9 @@ void	rotate(t_list *a, char *mvmt)
 	curr = a;
 	while (curr->next->next)
 	{
-		aux = ft_strdup(curr->content);
+		aux = curr->content;
 		curr->content = curr->next->content;
 		curr->next->content = aux;
-		// free(aux);
 		curr = curr->next;
 	}
 	if (mvmt)
@@ -161,5 +150,7 @@ int	main(int argc, char *argv[])
 	// a = push(&a, &b, 'b');
 	// b = push(&a, &b ,'a');
 	printf_list(a);
-	// system("leaks -q a.out");
+	ft_lstclear(&a, &ft_nothing);
+	ft_lstclear(&b, &ft_nothing);
+	system("leaks -q a.out");
 }
