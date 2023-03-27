@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:25:45 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/27 01:57:07 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:48:20 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	**stack_to_arr(char *stack)
 {
 	char	**arr;
-	
+
 	arr = ft_split(stack, 32);
 	return (arr);
 }

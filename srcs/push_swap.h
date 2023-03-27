@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:20:37 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/27 20:20:38 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:47:53 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,13 @@
 
 t_list	*args_to_list(char *args[], int i);
 void	printf_list(t_list *head);
+void	rev_rot(t_list *head, char *mvmt);
+void	rrr(t_list *a, t_list *b);
+void	rotate(t_list *a, char *mvmt);
+void	rr(t_list *a, t_list *b);
+void	ft_nothing(void *a);
+void	swp(t_list *head, char *mvmt);
+void	ss(t_list *a, t_list *b);
+t_list	*push(t_list **a, t_list **b, char stack);
 
 #endif
