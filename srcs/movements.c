@@ -6,13 +6,14 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 01:35:36 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/27 05:00:42 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:06:15 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
-void	swp(t_list *head, char stack)
+void	swp(t_list *head, char *mvmt)
 {
 	char	*aux;
 
@@ -21,54 +22,119 @@ void	swp(t_list *head, char stack)
 	aux = head->content;
 	head->content = head->next->content;
 	head->next->content = aux;
-	if (stack == 'a')
-		ft_printf("sa\n");
-	else if (stack == 'b')
-		ft_printf("sb\n");
+	if (mvmt)
+		ft_printf("%s\n", mvmt);
 }
 
 void	ss(t_list *a, t_list *b)
 {
-	swp(a, 'a');
-	swp(b, 'b');
+	swp(a, 0);
+	swp(b, 0);
 	ft_printf("ss\n");
 }
 
-void ft_nothing(void *a)
+void	ft_nothing(void *a)
 {
-	return ;
 }
 
-t_list	*push(t_list *a, t_list *b, char stack)
+t_list	*push(t_list **a, t_list **b, char stack)
 {
 	t_list	*aux;
 	t_list	*head;
 
-	if (stack == 'a')
+	if (stack == 'b')
 	{
-		if (!a)
-			return (0);
-		head = a->next;
-		aux = ft_lstnew(a->content);
-		// ft_printf("AUX DATA - %s\n", aux->content);
-		ft_lstadd_front(&b, aux);
-		ft_lstdelone(a, &ft_nothing);
+		if (!*a)
+			return (*a);
+		head = (*a)->next;
+		aux = ft_lstnew((*a)->content);
+		if (!*b)
+		{
+			*b = ft_lstnew(aux->content);
+			// ft_lstdelone(aux, ft_nothing);
+		}
+		else
+			ft_lstadd_front(b, aux);
+		ft_printf("pb\n");
 		return (head);
+	}
+	if (!*b)
+		return (*b);
+	head = (*b)->next;
+	aux = ft_lstnew((*b)->content);
+	if (!*a)
+	{
+		*a = ft_lstnew(aux->content);
+		// ft_lstdelone(aux, ft_nothing);
 	}
 	else
-	{
-		if (!b)
-			return (0);
-		head = b->next;
-		aux = ft_lstnew(b->content);
-		ft_lstadd_front(&a, aux);
-		// ft_lstdelone(b, &ft_nothing);
-		return (head);
-	}
+		ft_lstadd_front(a, aux);
+	ft_printf("pa\n");
+	return (head);
 }
 
-void	rotate(t_list *a)
+void	rotate(t_list *a, char *mvmt)
 {
+	t_list	*curr;
+	t_list	*last;
+	char	*aux;
+
+	if (!a)
+		return ;
+	last = ft_lstlast(a);
+	aux = a->content;
+	a->content = last->content;
+	last->content = aux;
+	curr = a;
+	while (curr->next->next)
+	{
+		aux = ft_strdup(curr->content);
+		curr->content = curr->next->content;
+		curr->next->content = aux;
+		// free(aux);
+		curr = curr->next;
+	}
+	if (mvmt)
+		ft_printf("%s\n", mvmt);
+}
+
+void	rr(t_list *a, t_list *b)
+{
+	rotate(a, 0);
+	rotate(b, 0);
+	ft_printf("rr\n");
+}
+
+void	rev_rot(t_list *head, char *mvmt)
+{
+	char	*aux;
+	t_list	*curr;
+	char	*next;
+	char	*first;
+
+	if (!head)
+		return ;
+	first = ft_lstlast(head)->content;
+	aux = head->content;
+	curr = head->next;
+	while (curr->next)
+	{
+		next = curr->content;
+		curr->content = aux;
+		aux = next;
+		curr = curr->next;
+	}
+	curr->content = aux;
+	head->content = first;
+	if (mvmt)
+		ft_printf("%s\n", mvmt);
+}
+
+void	rrr(t_list *a, t_list *b)
+{
+	rev_rot(a, 0);
+	rev_rot(b, 0);
+	ft_printf("rrr\n");
 }
 
 int	main(int argc, char *argv[])
@@ -76,13 +142,24 @@ int	main(int argc, char *argv[])
 	t_list	*a;
 	t_list	*b;
 
+	b = 0;
 	a = args_to_list(argv + 1, 0);
-	swp(a, 'a');
+	// /* ====== TEST SUBJECT ==== */
+
+	swp(a, "sa");
+	a = push(&a, &b, 'b');
+	a = push(&a, &b, 'b');
+	a = push(&a, &b, 'b');
+	rr(a, b);
+	rrr(a, b);
+	swp(a, "sa");
+	b = push(&a, &b, 'a');
+	b = push(&a, &b, 'a');
+	b = push(&a, &b, 'a');
+	
+	// /* ======================== */
+	// a = push(&a, &b, 'b');
+	// b = push(&a, &b ,'a');
 	printf_list(a);
-	// b = 0;
-	// printf_list(a);
-	// a = push(a, b, 'a');
-	// printf_list(a);
-	// // printf_list(b);
-	// ft_printf("b - %s\n", b->content);
+	// system("leaks -q a.out");
 }
