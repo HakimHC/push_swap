@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 19:07:11 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/28 19:30:11 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,24 +46,20 @@ SRCS = $(addprefix $(SRCDIR)/,$(SRCFILES))
 OBJS = $(SRCS:.c=.o)
 
 %.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@make bonus -C libft
-	@echo "LibFT compiled!"
-	$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
+	@make bonus -sC libft
+	@$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
 	@echo "push_swap compiled!!!!! :DD"
 
 all: $(NAME)
 
 clean:
-	@make clean -C libft
+	@make clean -sC libft
 	@rm -rf $(OBJS)
-	@echo "Clean Done!"
 
 fclean: clean
-	@make fclean -C libft
 	@rm -rf $(NAME)
-	@echo "Full Clean Done!"
 
 re: fclean all
