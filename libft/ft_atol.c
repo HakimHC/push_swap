@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:27:01 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 19:10:53 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:16:05 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long	ft_atol(char *str)
 {
 	int	i;
-	int	res;
-	int	sign;
+	long	res;
+	long	sign;
 
 	i = 0;
 	res = 0;
