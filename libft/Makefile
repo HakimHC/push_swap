@@ -6,7 +6,7 @@
 #    By: hakahmed <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:15:07 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/26 23:08:32 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/28 18:31:27 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ ft_memcmp.c ft_memmove.c ft_strchr.c ft_strdup.c ft_strlcat.c ft_strlcpy.c\
 ft_strncmp.c ft_toupper.c ft_tolower.c ft_strnstr.c ft_strrchr.c ft_calloc.c\
 ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_putendl_fd.c ft_substr.c\
 ft_strjoin.c ft_strtrim.c ft_strmapi.c ft_itoa.c ft_split.c ft_striteri.c\
-ft_printf.c ft_functions.c ft_functions2.c ft_free_strarr.c ft_strcmp.c
+ft_printf.c ft_functions.c ft_functions2.c ft_free_strarr.c ft_strcmp.c \
+ft_isspace.c ft_atol.c
 
 OBJ = $(SRC:.c=.o)
 

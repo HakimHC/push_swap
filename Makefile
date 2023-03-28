@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 18:12:09 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/28 19:07:11 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,16 @@ CFLAGS = -Wall -Werror -Wextra
 
 CFLAGS += -fsanitize=leak -g3
 
+INCDIR = inc
+
+CFLAGS += -I $(INCDIR) 
+
 LIBNAME = libft.a
 
 LIBDIR = libft
 
 LIBFLAGS = -L ./libft -lft
 
-INC = inc
 
 SRCDIR = srcs
 
@@ -35,6 +38,8 @@ SRCFILES = argparser.c \
 	   errors.c \
 	   movements.c \
 	   movements2.c \
+	   push_swap_utils.c \
+	   main.c
 
 SRCS = $(addprefix $(SRCDIR)/,$(SRCFILES))
 
@@ -46,7 +51,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	@make bonus -C libft
 	@echo "LibFT compiled!"
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
 	@echo "push_swap compiled!!!!! :DD"
 
 all: $(NAME)
