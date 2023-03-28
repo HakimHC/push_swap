@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   three_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:08:51 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 22:55:02 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 23:42:29 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,48 @@ int	is_ordered(t_list *head)
 	return (1);
 }
 
+void	first_case(t_list **a, t_list **b)
+{
+	swp(*a, "sa");
+	if (!is_ordered(*a))
+	{
+		*a = push(a, b, 'b');
+		swp(*a, "sa");
+		*b = push(a, b, 'a');
+	}
+}
+
+void	second_case(t_list **a, t_list **b)
+{
+	*a = push(a, b, 'b');
+	swp(*a, "sa");
+	*b = push(a, b, 'a');
+	if (!is_ordered(*a))
+		swp(*a, "sa");
+}
+
 void	three_args(t_list **a, t_list **b)
 {
+	char	*first;
+	char	*second;
+	char	*third;
+
+	first = (*a)->content;
+	second = (*a)->next->content;
+	third = (*a)->next->next->content;
 	if (is_ordered(*a))
 		return ;
-	if ((ft_atol((*a)->content) > ft_atol((*a)->next->content))
-		&& (ft_atol((*a)->next->content) < ft_atol((*a)->next->next->content)))
+	if ((ft_atol(first) > ft_atol(second))
+		&& (ft_atol(second) < ft_atol(third)))
 	{
-		swp(*a, "sa");
-		(void) b;
+		first_case(a, b);
 		return ;
 	}
-
+	if (ft_atol(first) < ft_atol(second) && ft_atol(second) > ft_atol(third))
+	{
+		second_case(a, b);
+		return ;
+	}
+	rr(*a, *b);
+	swp(*a, "sa");
 }

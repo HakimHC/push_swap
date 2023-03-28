@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 22:41:51 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/28 23:37:43 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # OPTIONAL FLAGS
 
-# CFLAGS += -fsanitize=address -g3
+CFLAGS += -fsanitize=address -g3
 
 INCDIR = inc
 
@@ -34,7 +34,7 @@ LIBFLAGS = -L ./libft -lft
 SRCDIR = srcs
 
 SRCFILES = argparser.c \
-	   algorithm.c \
+	   three_args.c \
 	   errors.c \
 	   movements.c \
 	   movements2.c \

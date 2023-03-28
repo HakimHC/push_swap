@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 22:56:13 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 23:29:16 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 			ft_printf("ORDERED\n");
 		else
 			ft_printf("NOT ORDERED\n");
+		printf_list(a);
 	}
 	// if (!is_ordered(a))
 	// 	ft_printf("NOT ORDERED.....\n");
