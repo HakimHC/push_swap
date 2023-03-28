@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 19:06:41 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:56:13 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ int	main(int argc, char *argv[])
 	b = 0;
 	a = args_to_list(argv + 1, 0);
 	ft_error_handler(a);
+
+	if (ft_lstsize(a) == 3)
+	{
+		three_args(&a, &b);
+		if (is_ordered(a))
+			ft_printf("ORDERED\n");
+		else
+			ft_printf("NOT ORDERED\n");
+	}
 	// if (!is_ordered(a))
 	// 	ft_printf("NOT ORDERED.....\n");
 	// // /* ====== TEST SUBJECT ==== */

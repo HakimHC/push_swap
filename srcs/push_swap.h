@@ -27,5 +27,6 @@ t_list	*push(t_list **a, t_list **b, char stack);
 int	is_ordered(t_list *head);
 int	contains_duplicates(t_list *head);
 void	ft_error_handler(t_list *head);
+void	three_args(t_list **a, t_list **b);
 
 #endif

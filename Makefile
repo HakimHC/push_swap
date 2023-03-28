@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 19:30:11 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/28 22:41:51 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # OPTIONAL FLAGS
 
-CFLAGS += -fsanitize=leak -g3
+# CFLAGS += -fsanitize=address -g3
 
 INCDIR = inc
 
@@ -48,15 +48,23 @@ OBJS = $(SRCS:.c=.o)
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+# ***** COLORS ********
+
+COLOUR_GREEN=\033[0;32m
+COLOUR_RED=\033[0;31m
+COLOUR_BLUE=\033[0;34m
+COLOUR_END=\033[0m
+
 $(NAME): $(OBJS)
 	@make bonus -sC libft
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
-	@echo "push_swap compiled!!!!! :DD"
+	@echo "$(COLOUR_GREEN)push_swap ready to rumble!!$(COLOUR_END)🎉"
 
 all: $(NAME)
 
 clean:
 	@make clean -sC libft
+	@echo "$(COLOUR_GREEN)push_swap cleaned!!$(COLOUR_END)🎉"
 	@rm -rf $(OBJS)
 
 fclean: clean

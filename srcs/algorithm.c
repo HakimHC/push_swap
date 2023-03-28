@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:08:51 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 16:12:25 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:55:02 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,18 @@ int	is_ordered(t_list *head)
 		curr = curr->next;
 	}
 	return (1);
+}
+
+void	three_args(t_list **a, t_list **b)
+{
+	if (is_ordered(*a))
+		return ;
+	if ((ft_atol((*a)->content) > ft_atol((*a)->next->content))
+		&& (ft_atol((*a)->next->content) < ft_atol((*a)->next->next->content)))
+	{
+		swp(*a, "sa");
+		(void) b;
+		return ;
+	}
+
 }
