@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:44:19 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 00:45:54 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:03:48 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ void	rr(t_list *a, t_list *b)
 
 void	ft_nothing(void *a)
 {
+	(void) a;
 }
