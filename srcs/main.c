@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 23:29:16 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/29 00:30:44 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,18 @@ int	main(int argc, char *argv[])
 {
 	t_list	*a;
 	t_list	*b;
+	char	**split;
 
-	(void) argc;
 	b = 0;
-	a = args_to_list(argv + 1, 0);
+	if (argc == 2)
+		split = ft_split(argv[1], ' ');
+	else
+		split = argv + 1;
+	a = args_to_list(split, 0);
 	ft_error_handler(a);
-
 	if (ft_lstsize(a) == 3)
-	{
 		three_args(&a, &b);
-		if (is_ordered(a))
-			ft_printf("ORDERED\n");
-		else
-			ft_printf("NOT ORDERED\n");
-		printf_list(a);
-	}
-	// if (!is_ordered(a))
-	// 	ft_printf("NOT ORDERED.....\n");
-	// // /* ====== TEST SUBJECT ==== */
-	//
-	// swp(a, "sa");
-	// a = push(&a, &b, 'b');
-	// a = push(&a, &b, 'b');
-	// a = push(&a, &b, 'b');
-	// rr(a, b);
-	// rrr(a, b);
-	// swp(a, "sa");
-	// b = push(&a, &b, 'a');
-	// b = push(&a, &b, 'a');
-	// b = push(&a, &b, 'a');
-	// 
-	// // /* ======================== */
-	// // a = push(&a, &b, 'b');
-	// // b = push(&a, &b ,'a');
-	// // printf_list(a);
-	// if (is_ordered(a))
-	// 	ft_printf("ORDERED.....\n");
 	ft_lstclear(&a, &ft_nothing);
 	ft_lstclear(&b, &ft_nothing);
-	// system("leaks -q a.out");
+	// system("leaks -q push_swap");
 }

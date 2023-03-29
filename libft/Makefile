@@ -6,7 +6,7 @@
 #    By: hakahmed <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:15:07 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 23:39:55 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/29 03:05:12 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ BONUSOBJ = $(BONUSSRC:.c=.o)
 
 # ***** COLORS ********
 
+bold := $(shell tput bold)
+reset := $(shell tput sgr0)
+
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
@@ -50,18 +53,21 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
 	@$(LIB) $(NAME) $(OBJ)
-	@echo "$(COLOUR_GREEN)LibFT Compiled!$(COLOUR_END)🎉"
+	@echo ""
+	@echo "$(COLOUR_GREEN)$(bold)Everything compiled successfully!$(COLOUR_END)$(reset)🎉"
 
 bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
 	@$(LIB) $(NAME) $(BONUSOBJ) $(OBJ)
-	@echo "$(COLOUR_GREEN)LibFT Compiled With Bonus!$(COLOUR_END)🎉"
+	@echo ""
+	@echo "$(COLOUR_GREEN)$(bold)Everything compiled successfully!$(COLOUR_END)$(reset)🎉"
 
 %.o: %.c
 	@$(CC) $(CCFLAGS) -c -o $@ $<
+	@echo "$(COLOUR_BLUE)$(bold)Compiling $(COLOUR_END)$(reset)" $<
 
 clean:
 	@$(RM) $(OBJ) $(BONUSOBJ)
-	@echo "$(COLOUR_GREEN)LibFT Cleaned!$(COLOUR_END)🫧"
+	@echo "$(COLOUR_GREEN)$(bold)Cleaned!$(COLOUR_END)$(reset)🧪"
 
 fclean: clean
 	@$(RM) $(NAME)

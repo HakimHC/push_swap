@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/28 23:37:43 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/29 03:26:58 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # OPTIONAL FLAGS
 
-CFLAGS += -fsanitize=address -g3
+# CFLAGS += -fsanitize=address -g3
 
 INCDIR = inc
 
@@ -47,6 +47,7 @@ OBJS = $(SRCS:.c=.o)
 
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(COLOUR_BLUE)Compiling $(COLOUR_END)" $<
 
 # ***** COLORS ********
 
@@ -55,16 +56,23 @@ COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
 COLOUR_END=\033[0m
 
+reset := $(shell tput sgr0)
+bold := $(shell tput bold)
+
+
 $(NAME): $(OBJS)
+	@echo ""
+	@echo "$(COLOUR_GREEN)$(bold)======= COMPILING LIBFT ========$(COLOUR_END)$(reset)"
+	@echo ""
 	@make bonus -sC libft
 	@$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
-	@echo "$(COLOUR_GREEN)push_swap ready to rumble!!$(COLOUR_END)🎉"
+	@echo ""
+	@echo "$(COLOUR_RED)$(bold)run the program by executing ./$(NAME) arg1 arg2 ...$(reset)"
 
-all: $(NAME)
+all: $(lib) $(NAME)
 
 clean:
 	@make clean -sC libft
-	@echo "$(COLOUR_GREEN)push_swap cleaned!!$(COLOUR_END)🎉"
 	@rm -rf $(OBJS)
 
 fclean: clean

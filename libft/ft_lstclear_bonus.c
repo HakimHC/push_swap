@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakahmed <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 21:28:44 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/08 11:07:35 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:52:31 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	ft_lstclear(t_list **lst, void (*del) (void *))
 void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
 	if (!*lst)
-	{
 		return ;
-		free(*lst);
-	}
 	ft_lstclear(&(*lst)->next, del);
 	del((*lst)->content);
 	free(*lst);
