@@ -13,10 +13,22 @@ def ss(a, b):
     swap_b(b)
 
 def push_a(a, b):
-    pass
+    if not b:
+        return
+    a.append(b.pop(0))
+
+def push_a(a, b):
+    if not a:
+        return
+    b.append(a.pop(0))
+
+def rotate(a):
+    
 
 a = [1, 2, 3]
 b = [1, 2, 3]
+
+
 
 swap_a(b)
 

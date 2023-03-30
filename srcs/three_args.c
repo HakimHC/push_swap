@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:08:51 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/29 01:56:54 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:49:04 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,22 @@ int	is_ordered(t_list *head)
 
 void	first_case(t_list **a, t_list **b)
 {
-	swp(*a, "sa");
-	if (!is_ordered(*a))
+	(void) b;
+	swp(*a, 0);
+	if (is_ordered(*a))
 	{
-		*a = push(a, b, 'b');
-		swp(*a, "sa");
-		*b = push(a, b, 'a');
+		ft_printf("sa\n");
+		return ;
 	}
+	swp(*a, 0);
+	rotate(*a, "rra");
 }
 
 void	second_case(t_list **a, t_list **b)
 {
-	*a = push(a, b, 'b');
-	swp(*a, "sa");
-	*b = push(a, b, 'a');
+	(void) b;
+	rev_rot(*a, "rra");
+	// rrr(*a, *b);
 	if (!is_ordered(*a))
 		swp(*a, "sa");
 }
