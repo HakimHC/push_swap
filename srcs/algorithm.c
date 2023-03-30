@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:25:57 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 00:10:18 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/31 01:26:27 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,23 @@ int	chunks_to_b(t_list **a, t_list **b, int *chunks)
 int	get_max(t_list *head)
 {
 	t_list	*curr;
+	int	max_num;
 	int	max;
+	int	curr_pos;
 
 	curr = head;
-	max = ft_atoi(curr->content);
+	curr_pos = 0;
+	max = 0;
+	max_num = ft_atoi(curr->content);
 	while (curr)
 	{
-		if (max < ft_atoi(curr->content))
-			max = ft_atoi(curr->content);
+		if (max_num < ft_atoi(curr->content))
+		{
+			max = curr_pos;
+			max_num = ft_atoi(curr->content);
+		}
 		curr = curr->next;
+		curr_pos++;
 	}
 	return (max);
 
@@ -78,25 +86,31 @@ int	get_max(t_list *head)
 
 void	chunks_to_a(t_list **a, t_list **b)
 {
-	int	counter;
+	int	max_pos;
+	int	top;
+	int	bottom;
 
-	counter = 0;
 	while (*b)
 	{
-		if (ft_atoi((*b)->content) == get_max(*b))
+		while (get_max(*b))
 		{
-		// ft_printf("%s\n", (*b)->content);
-			*b = push(a, b, 'a');
-			while (counter)
+		max_pos = get_max(*b);
+		top = max_pos;
+		bottom = ft_lstsize(*b) - max_pos;
+		if (top <= bottom)
+			{
+				rotate(*b, "rb");
+				top--;
+				bottom++;
+			}
+			else 
 			{
 				rev_rot(*b, "rrb");
-				counter--;
+				top++;
+				bottom--;
+			
 			}
 		}
-		else 
-		{
-			rotate(*b, "rb");
-			counter++;
-		}
+		*b = push(a, b, 'a');
 	}
 }
