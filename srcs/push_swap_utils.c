@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:26:07 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/30 01:21:48 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:56:56 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	*ft_chunk_generator(t_list *head)
 
 	min = ft_min_max(head, 'm');
 	max = ft_min_max(head, 'M');
-	mean = ft_range_calculator(head);
+	mean = (max - min) / 5;
 	chunks = (int *) malloc(5 * sizeof(int));
 	if (!chunks)
 		return (0);
@@ -69,19 +69,19 @@ int	*ft_chunk_generator(t_list *head)
 	return (chunks);
 }
 
-// int	main(int argc, char *argv[])
-// {
-// 	t_list	*head;
-//
-// 	head = args_to_list(argv + 1, 0);
-// 	// ft_printf("MIN - %d\n", ft_min_max(head, 'm'));
-// 	// ft_printf("MAX - %d\n", ft_min_max(head, 'M'));
-// 	int i = 0;
-// 	int *chunks = ft_chunk_generator(head);
-// 	while (i < 5)
-// 	{
-// 		ft_printf("%d ", chunks[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+int	main(int argc, char *argv[])
+{
+	t_list	*head;
+
+	head = args_to_list(argv + 1, 0);
+	// ft_printf("MIN - %d\n", ft_min_max(head, 'm'));
+	// ft_printf("MAX - %d\n", ft_min_max(head, 'M'));
+	int i = 0;
+	int *chunks = ft_chunk_generator(head);
+	while (i < 5)
+	{
+		ft_printf("%d ", chunks[i]);
+		i++;
+	}
+	return (0);
+}

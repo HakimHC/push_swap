@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/30 00:20:34 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/31 00:01:11 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCFILES = argparser.c \
 	   errors.c \
 	   movements.c \
 	   movements2.c \
+	   algorithm.c \
 	   main.c
 
 SRCS = $(addprefix $(SRCDIR)/,$(SRCFILES))

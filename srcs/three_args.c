@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:08:51 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/29 16:49:04 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:37:18 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	first_case(t_list **a, t_list **b)
 		return ;
 	}
 	swp(*a, 0);
-	rotate(*a, "rra");
+	rotate(*a, "ra");
 }
 
 void	second_case(t_list **a, t_list **b)

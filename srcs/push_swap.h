@@ -28,5 +28,9 @@ int	is_ordered(t_list *head);
 int	contains_duplicates(t_list *head);
 void	ft_error_handler(t_list *head);
 void	three_args(t_list **a, t_list **b);
+int	chunks_to_b(t_list **a, t_list **b, int *chunks);
+int	chunks_left(t_list *a, int *chunks, int i);
+int	element_in_range(char *elem, int *chunks, int i);
+void	chunks_to_a(t_list **a, t_list **b);
 
 #endif
