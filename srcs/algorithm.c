@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:25:57 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 01:26:27 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:12:50 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ void	chunks_to_a(t_list **a, t_list **b)
 	{
 		while (get_max(*b))
 		{
-		max_pos = get_max(*b);
-		top = max_pos;
-		bottom = ft_lstsize(*b) - max_pos;
-		if (top <= bottom)
+			max_pos = get_max(*b);
+			top = max_pos;
+			bottom = ft_lstsize(*b) - max_pos;
+			if (top <= bottom)
 			{
 				rotate(*b, "rb");
 				top--;

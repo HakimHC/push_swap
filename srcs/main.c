@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 01:53:47 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:16:31 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	main(int argc, char *argv[])
 	// printf_list(b);
 	chunks_to_a(&a, &b);
 	// printf_list(b);
-	if (is_ordered(a))
-		ft_printf("ORDERED\n");
-	printf_list(a);
+	// if (is_ordered(a))
+	// 	ft_printf("ORDERED\n");
+	// printf_list(a);
 	// printf_list(b);
 	// ft_lstclear(&a, &ft_nothing);
 	// free(split);

@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:44:19 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 00:00:58 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/03/31 02:15:42 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	rev_rot(t_list *head, char *mvmt)
 		return ;
 	if (ft_lstsize(head) == 2)
 	{
+		if (!ft_strcmp(mvmt, "rrb"))
+			ft_printf("sb\n");
 		swp(head, 0);
 		return;
 	}
@@ -61,6 +63,8 @@ void	rotate(t_list *a, char *mvmt)
 		return ;
 	if (ft_lstsize(a) == 2)
 	{
+		if (!ft_strcmp(mvmt, "rb"))
+			ft_printf("sb\n");
 		swp(a, 0);
 		return;
 	}
