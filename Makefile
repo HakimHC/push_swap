@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/31 00:01:11 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/03/31 15:06:53 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # OPTIONAL FLAGS
 
-# CFLAGS += -fsanitize=address -g3
+CFLAGS += -fsanitize=address -g3
 
 INCDIR = inc
 
