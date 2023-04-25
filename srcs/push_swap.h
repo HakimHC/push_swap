@@ -38,5 +38,8 @@ void	determine_rotate(int *top, int *bottom, t_list **b);
 int	ft_min_max(t_list *head, char m);
 void	sort_four(t_list **a, t_list **b);
 void	sort_five(t_list **a, t_list **b);
+void	sort_all(t_list **a, t_list **b);
+void	determine_algo(t_list **a, t_list **b);
+void	err_han(t_list *a);
 
 #endif

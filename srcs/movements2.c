@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:44:19 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 02:15:42 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:18:07 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	rev_rot(t_list *head, char *mvmt)
 		return ;
 	if (ft_lstsize(head) == 2)
 	{
-		if (!ft_strcmp(mvmt, "rrb"))
-			ft_printf("sb\n");
+		/* if (!ft_strcmp(mvmt, "rrb")) */
+		/* 	ft_printf("sb\n"); */
+		ft_printf("%s\n", mvmt);
 		swp(head, 0);
 		return ;
 	}
@@ -63,9 +64,9 @@ void	rotate(t_list *a, char *mvmt)
 		return ;
 	if (ft_lstsize(a) == 2)
 	{
-		if (!ft_strcmp(mvmt, "rb"))
-			ft_printf("sb\n");
-		swp(a, 0);
+		/* if (!ft_strcmp(mvmt, "rb")) */
+		/* 	ft_printf("sb\n"); */
+		swp(a, mvmt);
 		return ;
 	}
 	last = ft_lstlast(a);

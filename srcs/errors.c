@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 23:05:39 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 14:46:02 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:10:45 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,17 @@ void	ft_error_handler(t_list *head)
 	}
 }
 
+void	err_han(t_list *a)
+{
+	if (ft_lstsize(a) == 1)
+	{
+		ft_error_handler(a);
+		exit(EXIT_SUCCESS);
+	}
+	ft_error_handler(a);
+	if (is_ordered(a))
+		exit(EXIT_SUCCESS);
+}
 //
 // int	main(int argc, char **argv)
 // {
