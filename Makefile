@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/04/19 15:47:12 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/04/25 16:36:59 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRCFILES = argparser.c \
 	   movements2.c \
 	   algorithm.c \
 	   main.c \
-	   push_swap_utils.c
+	   push_swap_utils.c \
+	   algo_handler.c
 
 SRCS = $(addprefix $(SRCDIR)/,$(SRCFILES))
 

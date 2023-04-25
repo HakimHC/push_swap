@@ -48,7 +48,7 @@ int	ft_isinteger(char *element)
 void	print_n_exit(void)
 {
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void	ft_error_handler(t_list *head)

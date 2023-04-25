@@ -35,5 +35,8 @@ void	chunks_to_a(t_list **a, t_list **b);
 int	ft_range_calculator(t_list *head);
 int	*ft_chunk_generator(t_list *head);
 void	determine_rotate(int *top, int *bottom, t_list **b);
+int	ft_min_max(t_list *head, char m);
+void	sort_four(t_list **a, t_list **b);
+void	sort_five(t_list **a, t_list **b);
 
 #endif
