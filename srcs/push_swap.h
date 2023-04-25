@@ -32,5 +32,8 @@ int	chunks_to_b(t_list **a, t_list **b, int *chunks);
 int	chunks_left(t_list *a, int *chunks, int i);
 int	element_in_range(char *elem, int *chunks, int i);
 void	chunks_to_a(t_list **a, t_list **b);
+int	ft_range_calculator(t_list *head);
+int	*ft_chunk_generator(t_list *head);
+void	determine_rotate(int *top, int *bottom, t_list **b);
 
 #endif

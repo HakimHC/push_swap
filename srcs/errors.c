@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 23:05:39 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/28 23:10:05 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:46:02 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	ft_isinteger(char *element)
 	long	n;
 
 	n = ft_atol(element);
-	// ft_printf("%d\n", n);
-	// ft_printf("%d\n", n);
 	if (n < INT_MIN || n > INT_MAX)
 		return (0);
 	if (n == 0 && ft_strcmp(element, "0"))

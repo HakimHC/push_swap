@@ -28,7 +28,7 @@ void	rev_rot(t_list *head, char *mvmt)
 		if (!ft_strcmp(mvmt, "rrb"))
 			ft_printf("sb\n");
 		swp(head, 0);
-		return;
+		return ;
 	}
 	first = ft_lstlast(head)->content;
 	aux = head->content;
@@ -66,7 +66,7 @@ void	rotate(t_list *a, char *mvmt)
 		if (!ft_strcmp(mvmt, "rb"))
 			ft_printf("sb\n");
 		swp(a, 0);
-		return;
+		return ;
 	}
 	last = ft_lstlast(a);
 	aux = a->content;

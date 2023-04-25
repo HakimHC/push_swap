@@ -12,24 +12,9 @@
 
 #include "push_swap.h"
 
-int	ft_range_calculator(t_list *head)
-{
-	int	sum;
-	t_list	*curr;
-
-	curr = head;
-	sum = 0;
-	while (curr)
-	{
-		sum += ft_atoi(curr->content);
-		curr = curr->next;
-	}
-	return (sum / ft_lstsize(head));
-}
-
 int	ft_min_max(t_list *head, char m)
 {
-	int	minmax;
+	int		minmax;
 	t_list	*curr;
 
 	curr = head;
@@ -49,39 +34,60 @@ int	*ft_chunk_generator(t_list *head)
 {
 	int	*chunks;
 	int	min;
-	int	max;
 	int	mean;
 	int	i;
+	int	len;
 
+	if (ft_lstsize(head) <= 10)
+		len = 3;
+	else if (ft_lstsize(head) <= 100)
+		len = 7;
+	else
+		len = 10;
 	min = ft_min_max(head, 'm');
-	max = ft_min_max(head, 'M');
-	mean = (max - min) / 5;
-	chunks = (int *) malloc(5 * sizeof(int));
+	mean = (ft_min_max(head, 'M') - min) / len;
+	chunks = (int *) malloc(len * sizeof(int));
 	if (!chunks)
-		return (0);
+		return (NULL);
 	i = 0;
-	while (i < 4)
+	while (i < len)
 	{
 		chunks[i] = min + (i * mean);
 		i++;
 	}
-	chunks[i] = max;
+	chunks[i] = ft_min_max(head, 'M') + 1;
 	return (chunks);
 }
 
-int	main(int argc, char *argv[])
+void	determine_rotate(int *top, int *bottom, t_list **b)
 {
-	t_list	*head;
-
-	head = args_to_list(argv + 1, 0);
-	// ft_printf("MIN - %d\n", ft_min_max(head, 'm'));
-	// ft_printf("MAX - %d\n", ft_min_max(head, 'M'));
-	int i = 0;
-	int *chunks = ft_chunk_generator(head);
-	while (i < 5)
+	if (*top <= *bottom)
 	{
-		ft_printf("%d ", chunks[i]);
-		i++;
+		rotate(*b, "rb");
+		(*top)--;
+		(*bottom)++;
 	}
-	return (0);
+	else
+	{
+		rev_rot(*b, "rrb");
+		(*top)++;
+		(*bottom)--;
+	}
 }
+
+/* int	main(int argc, char *argv[]) */
+/* { */
+/* 	t_list	*head; */
+
+/* 	head = args_to_list(argv + 1, 0); */
+/* 	// ft_printf("MIN - %d\n", ft_min_max(head, 'm')); */
+/* 	// ft_printf("MAX - %d\n", ft_min_max(head, 'M')); */
+/* 	int i = 0; */
+/* 	int *chunks = ft_chunk_generator(head); */
+/* 	while (i < 5) */
+/* 	{ */
+/* 		ft_printf("%d ", chunks[i]); */
+/* 		i++; */
+/* 	} */
+/* 	return (0); */
+/* } */

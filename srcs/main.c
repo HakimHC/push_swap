@@ -6,11 +6,12 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/03/31 15:11:35 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:46:16 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 int	main(int argc, char *argv[])
 {
@@ -24,14 +25,20 @@ int	main(int argc, char *argv[])
 	else
 		split = argv + 1;
 	a = args_to_list(split, 0);
+	ft_error_handler(a);
+	if (ft_lstsize(a) == 3)
+	{
+		three_args(&a, &b);
+		return 0;
+	}
 	if (ft_lstsize(a) == 3)
 		three_args(&a, &b);
-	ft_error_handler(a);
-	// int chunks[] = {1, 101, 151, 201, 251, 301, 351, 401, 451, 501};
-	int chunks[] = {1, 12, 23, 34, 45, 56, 67, 78, 89, 101};
+	int *chunks = ft_chunk_generator(a);
 	chunks_to_b(&a, &b, chunks);
 	chunks_to_a(&a, &b);
 	ft_lstclear(&a, &ft_nothing);
-	ft_free_strarr(split);
+	if (argc == 2)
+		ft_free_strarr(split);
 	ft_lstclear(&b, &ft_nothing);
+	system("leaks -q push_swap");
 }

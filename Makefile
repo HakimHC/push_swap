@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/03/31 15:06:53 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/04/19 15:47:12 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # OPTIONAL FLAGS
 
-CFLAGS += -fsanitize=address -g3
+# CFLAGS += -fsanitize=address -g3
 
 INCDIR = inc
 
@@ -39,7 +39,8 @@ SRCFILES = argparser.c \
 	   movements.c \
 	   movements2.c \
 	   algorithm.c \
-	   main.c
+	   main.c \
+	   push_swap_utils.c
 
 SRCS = $(addprefix $(SRCDIR)/,$(SRCFILES))
 
