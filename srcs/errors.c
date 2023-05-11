@@ -6,12 +6,14 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 23:05:39 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 19:10:45 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:02:38 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdio.h>
 #include <limits.h>
+
+#include "push_swap.h"
 
 int	contains_duplicates(t_list *head)
 {
@@ -19,6 +21,8 @@ int	contains_duplicates(t_list *head)
 	t_list	*next;
 
 	curr = head;
+	if (!curr)
+		return (1);
 	while (curr->next)
 	{
 		next = curr->next;
@@ -36,13 +40,30 @@ int	contains_duplicates(t_list *head)
 int	ft_isinteger(char *element)
 {
 	long	n;
+	long	sign;
+	int		i;
 
-	n = ft_atol(element);
-	if (n < INT_MIN || n > INT_MAX)
-		return (0);
-	if (n == 0 && ft_strcmp(element, "0"))
-		return (0);
-	return (1);
+	n = 0;
+	sign = 1;
+	i = -1;
+	while (ft_isspace(element[++i]))
+		;
+	if (element[i] == '-' || element[i] == '+')
+	{
+		if (element[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (ft_isdigit(element[i]))
+	{
+		n = (n * 10) + (element[i] - 48);
+		if (n * sign > INT_MAX || n * sign < INT_MIN)
+			return (0);
+		i++;
+	}
+	while (ft_isspace(element[i++]))
+		;
+	return (!(element[i - 1]));
 }
 
 void	print_n_exit(void)
@@ -60,7 +81,8 @@ void	ft_error_handler(t_list *head)
 	curr = head;
 	while (curr)
 	{
-		if (!ft_isinteger(curr->content))
+		if (!ft_isinteger(curr->content)
+			|| ft_strlen(curr->content) < 1)
 			print_n_exit();
 		curr = curr->next;
 	}

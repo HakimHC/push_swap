@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:41:14 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 19:09:39 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:34:38 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,13 @@ void	sort_five(t_list **a, t_list **b)
 	int	min;
 
 	min = ft_min_max(*a, 'm');
-	while (ft_atoi((*a)->content) != min)
-		rotate(*a, "ra");
+	if (ft_atoi(ft_lstlast(*a)->content) == min)
+		rev_rot(*a, "rra");
+	else
+	{
+		while (ft_atoi((*a)->content) != min)
+			rotate(*a, "ra");
+	}
 	*a = push(a, b, 'b');
 	min = ft_min_max(*a, 'm');
 	while (ft_atoi((*a)->content) != min)

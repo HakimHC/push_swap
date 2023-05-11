@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:26:07 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 18:45:04 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:20:47 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void	determine_rotate(int *top, int *bottom, t_list **b)
 		(*top)++;
 		(*bottom)--;
 	}
+}
+
+void	ft_nothing(void *a)
+{
+	(void) a;
 }
 
 /* int	main(int argc, char *argv[]) */

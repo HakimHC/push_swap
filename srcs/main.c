@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:35:24 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 19:17:13 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:02:23 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char *argv[])
 {
 	t_list	*a;
 	t_list	*b;
-	int	b_free;
+	int		b_free;
 	char	**split;
 
 	b_free = 0;

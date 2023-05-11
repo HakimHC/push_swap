@@ -6,7 +6,7 @@
 #    By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 17:53:50 by hakahmed          #+#    #+#              #
-#    Updated: 2023/04/25 16:36:59 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/05/04 10:37:57 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,20 +16,19 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-# OPTIONAL FLAGS
-
-# CFLAGS += -fsanitize=address -g3
+CFLAGS += -g3
 
 INCDIR = inc
 
-CFLAGS += -I $(INCDIR) 
+CFLAGS += -I $(INCDIR)
 
-LIBNAME = libft.a
+CFLAGS += -I $(LIBDIR)/$(INCDIR)
 
 LIBDIR = libft
 
-LIBFLAGS = -L ./libft -lft
+LDFLAGS = -L ./libft -lft
 
+# LDFLAGS += -fsanitize=address
 
 SRCDIR = srcs
 
@@ -67,20 +66,22 @@ $(NAME): $(OBJS)
 	@echo "$(COLOUR_GREEN)$(bold)======= COMPILING LIBFT ========$(COLOUR_END)$(reset)"
 	@echo ""
 	@make bonus -sC libft
-	@$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(NAME)
 	@echo ""
 	@echo "$(COLOUR_RED)$(bold)run the program by executing ./$(NAME) arg1 arg2 ...$(reset)"
 
 all: $(lib) $(NAME)
 
 clean:
-	@make clean -sC libft
+	@make fclean -sC libft
 	@rm -rf $(OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)
-	@make fclean -C libft
+	@make fclean -sC libft
 
 re: fclean all
 
-.SILENT: name
+.SILENT: name fclean clean
+
+.PHONY: all clean fclean re

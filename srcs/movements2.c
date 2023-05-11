@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:44:19 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 19:18:07 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:21:40 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,10 @@ void	rev_rot(t_list *head, char *mvmt)
 	char	*next;
 	char	*first;
 
-	if (!head)
-		return ;
 	if (!head || ft_lstsize(head) == 1)
 		return ;
 	if (ft_lstsize(head) == 2)
-	{
-		/* if (!ft_strcmp(mvmt, "rrb")) */
-		/* 	ft_printf("sb\n"); */
-		ft_printf("%s\n", mvmt);
-		swp(head, 0);
-		return ;
-	}
+		return (swp(head, mvmt));
 	first = ft_lstlast(head)->content;
 	aux = head->content;
 	curr = head->next;
@@ -63,12 +55,7 @@ void	rotate(t_list *a, char *mvmt)
 	if (!a || ft_lstsize(a) == 1)
 		return ;
 	if (ft_lstsize(a) == 2)
-	{
-		/* if (!ft_strcmp(mvmt, "rb")) */
-		/* 	ft_printf("sb\n"); */
-		swp(a, mvmt);
-		return ;
-	}
+		return (swp(a, mvmt));
 	last = ft_lstlast(a);
 	aux = a->content;
 	a->content = last->content;
@@ -91,9 +78,3 @@ void	rr(t_list *a, t_list *b)
 	rotate(b, 0);
 	ft_printf("rr\n");
 }
-
-void	ft_nothing(void *a)
-{
-	(void) a;
-}
-

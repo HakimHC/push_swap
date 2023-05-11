@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:25:57 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/04/25 19:03:25 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:21:13 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ int	chunks_to_b(t_list **a, t_list **b, int *chunks)
 	i = 0;
 	while (*a)
 	{
-		if (ft_lstsize(*a) >= 3 && ft_lstsize(*a) <= 5)
-		{
-			if (ft_lstsize(*a) == 3)
-				three_args(a, b);
-			if (ft_lstsize(*a) == 4)
-				sort_four(a, b);
-			if (ft_lstsize(*a) == 5)
-				sort_five(a, b);
-			return 1;
-		}
 		while (chunks_left(*a, chunks, i))
 		{
 			if (element_in_range((*a)->content, chunks, i))
